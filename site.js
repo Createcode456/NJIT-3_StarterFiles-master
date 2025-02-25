@@ -31,17 +31,41 @@ const vue_app = Vue.createApp({
       },
       data() {
         return {
+            // Completed additional Variables.
             // This holds your movies.json data.
             movies: [],
             /* ADD ADDITIONAL VARIABLES FOR STEP 3 HERE */
+            months:[,'jan','feb','march','april','may','june','july','aug','sep','oct','nov','dec'],
          title:"IMDB + Ari’s Top 8 Movies",
          owner: "Ari",
-         github:"",
+         github:"https://github.com/Createcode456/NJIT-3_StarterFiles-master",
       }
     },
       methods: {
             /* ADD FUNCTIONS/METHODS FOR STEP 7 HERE */
-      }
+          getMonthText(dateArray) {
+            var year = dateArray[0];
+            var month = this.months[dateArray[1]-1];
+            var day = dateArray[2];
+            return month +',' +day + ',' + year;
+
+          },
+          posterClick(index)
+          {
+            const movie = this.movies(index);
+             movie.posterindex = (movie.posterindex + 1) % movie.posters.length;
+          },
+
+          timeText(minutes)
+          {
+const hours = Math.trunc(minutes/60);
+const mins = minutes % 60;
+return hours + "h" + mins +"mins";
+          }
+     
+
+}
 })
+
 
 vue_app.mount("#vue_app")

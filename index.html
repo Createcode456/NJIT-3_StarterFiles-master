@@ -12,54 +12,59 @@
 	<link rel="stylesheet" type='text/css' href="style.css"/>
 	  
 	<!-- DO NOT CHANGE ANYTHING ABOVE THIS LINE-->
+	 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
-	<!-- Javascript Framework (e.g., vue.js) (ADD HERE) -->
-	<script src="https://unpkg.com/vue@3.0.2"></script>
 
 
 </head>
 
-  <body>
-	<div id="vue_app" class="container">
+<body>
+    <div id="vue_app" class="container">
 
-	    <div class="header">
+        <div class="header">
 
-	      <div class="container">
-	        <h1 id="app_title">%title%</h1>
-	      </div>
+          <div class="container">
+            <h1 id="app_title">{{Title}}</h1>
+          </div>
 
-	    </div>
+        </div>
 
-	    <div class="main">
+        <div class="main">
 
-	      <div class="row">
+          <div class="row">
 
-	        <div class="col-md-6">
-	            <div class="thumbnail">
+            <div class="col-md-6" v-for="(movie, index) in movies">
+                <div class="thumbnail">
+<!-- M2 Added all the variables that help display all the information on the html,  from the posters to the websites. -->
 
-						<img class="poster img-fluid" />
-						<div class="imageInfo">%posterindex%</div>
+<!-- M3 Added the loop that displays all the movies with the following two lines of code added -->
 
-						<p class="title">%title% (%country%)</p>
-						<p class="score"><i class="bi bi-star" aria-hidden="true"></i> %iscore% </p>
-						<p class="runtime">Runtime: %runtime%</p>
-						<p class="released">Released: %released% | Rated: %rating%</p>
-						<p class="websites">Websites: <a> imdb </a> | <a>website</a></p>
+                        <img class="poster img-fluid" :src="movie.posters[movie.posterindex]" @click="posterClick(index)"/> 
+                        <div class="imageInfo">Poster {{movie.posterindex + 1}} 0f {{movie.posters.length}}</div>
 
-			            <div class="social">
-			              <p class="likes"><i class="bi bi-hand-thumbs-up" aria-hidden="true"></i> %likes%</p>
-			              <p class="dislikes"><i class="bi bi-hand-thumbs-down"></i> %dislikes%</p>
-			            </div>
-	            </div>
-	        </div>
+                        <p class="title">{{movie.title}} ({{movie.country}})</p>
+                        <p class="score"><i class="bi bi-star" aria-hidden="true"></i> {{movie.iscore}} </p>
+                        <p class="runtime">Runtime: {{timeText(movie.runtime) }}</p>
+                        <p class="released">Released: {{getMonthText (movie.released) }} | Rated: {{movie.rating}}</p>
+                        <p class="websites" >Websites: <a href="{{movie[0].imdb}}"> imdb </a> | <a href="{{movie[0].website}}">website</a>
+						</p>
 
-	      </div>
-	    </div>
+                        <div class="social">
+                          <p class="likes" @click="movie.likes++"><i class="bi bi-hand-thumbs-up" aria-hidden="true"></i> {{ movie.likes }}</p>
+                          <p class="dislikes" @click="movie.dislikes++"><i class="bi bi-hand-thumbs-down"></i> {{ movie.dislikes + 1 }}</p>
+                        </div>
+                </div>
+            </div>
+
+          </div>
+        </div>
+		</div>
 
 	    <div class="footer">
 	      <div class="container">
+			
 			<a id="github" class="btn btn-lg btn-warning">
-				<i class="bi bi-github me-2"></i>%owner%
+				<i class="https://github.com/Createcode456/NJIT-3_StarterFiles-master"></i>{{Ari}}
 	  		</a>
 	      </div>
 	    </div>
