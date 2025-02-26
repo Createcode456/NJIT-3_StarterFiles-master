@@ -36,7 +36,7 @@ const vue_app = Vue.createApp({
             movies: [],
             /* ADD ADDITIONAL VARIABLES FOR STEP 3 HERE */
             months:[,'jan','feb','march','april','may','june','july','aug','sep','oct','nov','dec'],
-         title:"IMDB + Ari’s Top 8 Movies",
+         title:"IMDB + Ari’s Top TV Shows",
          owner: "Ari",
          github:"https://github.com/Createcode456/NJIT-3_StarterFiles-master",
       }
@@ -52,7 +52,7 @@ const vue_app = Vue.createApp({
           },
           posterClick(index)
           {
-            const movie = this.movies(index);
+            const movie = this.movies[index];
              movie.posterindex = (movie.posterindex + 1) % movie.posters.length;
           },
 
