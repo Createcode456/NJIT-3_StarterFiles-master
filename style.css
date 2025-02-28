@@ -107,6 +107,7 @@ body {
     transition: 500ms;
     background-color: #67c545;
     color:white;
+    margin-bottom: 60px;
 }
 .likes:hover {
     background-color: rgb(166, 233, 177);

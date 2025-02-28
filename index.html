@@ -46,7 +46,7 @@
                         <p class="score"><i class="bi bi-star" aria-hidden="true"></i> {{movie.iscore}} </p>
                         <p class="runtime">Runtime: {{timeText(movie.runtime) }}</p>
                         <p class="released">Released: {{getMonthText (movie.released) }} | Rated: {{movie.rating}}</p>
-                        <p class="websites" >Websites: <a href="{{movie[0].imdb}}"> imdb </a> | <a href="{{movie[0].website}}">website</a>
+                        <p class="websites" >Websites: <a :href="movie.imdb" target="_blank"> imdb </a> | <a :href="movie.watchhere">watchhere</a>
 						</p>
 
                         <div class="social">
@@ -64,7 +64,7 @@
 	      <div class="container">
 			
 			<a id="github" class="btn btn-lg btn-warning">
-				<i class="https://github.com/Createcode456/NJIT-3_StarterFiles-master"></i>{{Ari}}
+				<i class="https://github.com/Createcode456/NJIT-3_StarterFiles-master"></i>{{owner}}
 	  		</a>
 	      </div>
 	    </div>
